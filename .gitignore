@@ -1,4 +1,8 @@
 dataset/
+papers/
+notebooks/
+segmentation/
+src/
 checkpoints/
 __pycache__/
 *.pyc
