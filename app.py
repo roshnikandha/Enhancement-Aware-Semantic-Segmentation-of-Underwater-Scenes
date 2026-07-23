@@ -1,3 +1,5 @@
+import os
+import gdown
 import streamlit as st
 import torch
 import cv2
@@ -7,7 +9,19 @@ from PIL import Image
 from torchvision.models.segmentation import deeplabv3_resnet50
 from torchvision.models.segmentation.deeplabv3 import DeepLabHead
 
+MODEL_PATH = "checkpoints/suim_model.pth"
 
+MODEL_URL = "https://drive.google.com/uc?id=1kidcwb_Tn-3sZndNsx9B6aQbeL0soZUA"
+
+if not os.path.exists("checkpoints"):
+    os.makedirs("checkpoints")
+
+if not os.path.exists(MODEL_PATH):
+    gdown.download(
+        MODEL_URL,
+        MODEL_PATH,
+        quiet=False
+    )
 # -----------------------
 # Load Model
 # -----------------------
